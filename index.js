@@ -1,8 +1,8 @@
 require("dotenv").config();
 
-const BOT_API       = process.env.BOT_API || '5278128402:AAHYu4FNGUOlrHczrpq-qLtWyBPaqVSr4mI';
+const BOT_API       = process.env.BOT_API || '5171620344:AAHCoN8UW6lfbiHxrECBhgq9pJbO1aCUrZY\n';
 const PORT          = process.env.PORT || 3000;
-const URL           = process.env.URL || 'https://telebotax.herokuapp.com';
+const URL           = process.env.URL || 'https://vipuppbot.herokuapp.com';
 
 const { Telegraf, Markup } = require('telegraf')
 const bot       = new Telegraf(BOT_API);
