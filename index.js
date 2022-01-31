@@ -29,9 +29,17 @@ for(let i = 0; i <= 1; i++ ){
     k =  ctx.message.message_id-i;
     ctx.deleteMessage(k)
 }
-    return ctx.reply("Temizlendik")
+    return ctx.reply("Sohbet geçmişi temizlendi.")
     
 })
+
+
+bot.command('destur', (ctx, temiz) =>{
+
+    return ctx.reply("Hoşgeldiniz, hünkarım.")
+    
+})
+
 
 
     
