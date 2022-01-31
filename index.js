@@ -48,8 +48,8 @@ bot.command('web', async (ctx, next) => {
             [Markup.button.url('Asos Transfer', 'www.asostransfer.com')],
             [Markup.button.url('TransferSepetim', 'www.transfersepetim.com')],
             [Markup.button.url('VipUpp', 'www.vipupp.com.tr')],
-            [Markup.button.url('Staff', 'www.asosturizm.com/staff')]
-            [ Markup.button.callback('Yok ben almıyım.', 'kapat')]
+            [Markup.button.url('Staff', 'www.asosturizm.com/staff')],
+            [Markup.button.callback('Yok ben almıyım.', 'kapat')]
         ])
     })
 }
