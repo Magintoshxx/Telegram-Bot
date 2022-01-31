@@ -1,8 +1,8 @@
 require("dotenv").config();
 
-const BOT_API       = process.env.BOT_API || '';
+const BOT_API       = process.env.BOT_API || '5278128402:AAHYu4FNGUOlrHczrpq-qLtWyBPaqVSr4mI';
 const PORT          = process.env.PORT || 3000;
-const URL           = process.env.URL || 'https://your-heroku-app.herokuapp.com';
+const URL           = process.env.URL || 'https://telebotax.herokuapp.com';
 
 const { Telegraf, Markup } = require('telegraf')
 const bot       = new Telegraf(BOT_API);
@@ -22,7 +22,14 @@ bot.hears(/selam/ig, async (ctx, next) => {
     return next();
 });
 
+bot.command('temizle', (ctx) =>{
+let k = 0;
+for(let i = 0; i <= 100; i++ ){
+    k =  ctx.message.message_id-i;
+    ctx.deleteMessage(k)
+}
 
+    
 bot.command('botsohbet', async (ctx, next) => {
     
     await bot.telegram.sendDocument(ctx.chat.id, {
