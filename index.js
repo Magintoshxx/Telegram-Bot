@@ -17,7 +17,7 @@ bot.start((ctx) => {
 
 bot.hears(/logo/ig, async (ctx, next) => {
     await ctx.telegram.sendPhoto(ctx.chat.id,
-        'https://asosturizm.com/pics/logocan.png',
+        'https://www.asostransfer.com/logodark.png',
         { parse_mode: 'HTML' })
     return next();
 });
