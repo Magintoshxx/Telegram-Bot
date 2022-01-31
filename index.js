@@ -11,7 +11,7 @@ const config = require('./config');
 
 // Bota start verdiğinizde atılan ilk mesaj
 bot.start((ctx) => {
-    return ctx.reply("Hey");
+    return ctx.reply("Merhaba, ben Asos. Bu şirketin asistanıyım. Geliştiricim : @Barış. İyi günler diliyorum.");
 });
 
 
@@ -50,7 +50,7 @@ bot.command('destur', async (ctx, next) => {
             [Markup.button.url('TransferSepetim', 'www.transfersepetim.com')],
             [Markup.button.url('VipUpp', 'www.vipupp.com.tr')],
             [Markup.button.url('Staff', 'www.asosturizm.com/staff')],
-            [ Markup.button.callback('Yok ben almıyım.', 'kapat')]
+            [ Markup.button.callback('Kapat.', 'kapat')]
         ])
     })
 }
