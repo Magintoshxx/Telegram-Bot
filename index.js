@@ -22,12 +22,17 @@ bot.hears(/selam/ig, async (ctx, next) => {
     return next();
 });
 
-bot.command('temizle', (ctx) =>{
-let k = 0;
+bot.command('temizle', (ctx, temiz) =>{
+
+   let k = 0;
 for(let i = 0; i <= 100; i++ ){
     k =  ctx.message.message_id-i;
     ctx.deleteMessage(k)
 }
+    return temiz("Temizlendik")
+    
+})
+
 
     
 bot.command('botsohbet', async (ctx, next) => {
