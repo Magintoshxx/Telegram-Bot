@@ -40,19 +40,7 @@ bot.command('destur', async (ctx, next) => {
 });
 
 
-bot.command('web', async (ctx, next) => {
-    await ctx.reply('<b>Hangi web sitesine erişmek istiyorsunuz.?</b>', {
-        parse_mode: 'HTML',
-        ...Markup.inlineKeyboard([
-            [Markup.button.url('Asos Turizm', 'www.asosturizm.com')],
-            [Markup.button.url('Asos Transfer', 'www.asostransfer.com')],
-            [Markup.button.url('TransferSepetim', 'www.transfersepetim.com')],
-            [Markup.button.url('VipUpp', 'www.vipupp.com.tr')],
-            [Markup.button.url('Staff', 'www.asosturizm.com/staff')],
-            [Markup.button.callback('Yok ben almıyım.', 'kapat')]
-        ])
-    })
-}
+
             
             async function searchMessage(ctx){
     await ctx.reply('<b>Hangi arama motorunu kullanmak istiyorsunuz?</b>', {
