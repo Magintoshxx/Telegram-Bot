@@ -11,14 +11,14 @@ const config = require('./config');
 
 // Bota start verdiğinizde atılan ilk mesaj
 bot.start((ctx) => {
-    return ctx.reply("Merhaba, ben Asos. Yenii asistanım. Büşra'nın yerinde gözüm olduğu için buradayım. ");
+    return ctx.reply("Merhaba, ben Asos. Yeni asistanım. Büşra'nın yerinde gözüm olduğu için buradayım. ");
 });
 
 
-bot.hears(/selam/ig, async (ctx, next) => {
+bot.hears(/logo/ig, async (ctx, next) => {
     await ctx.telegram.sendPhoto(ctx.chat.id,
-        'https://www.ajanskirim.com/wp-content/uploads/2019/03/1525995635Merhaba.jpg',
-        { caption:  `<b>${ctx.from.first_name}</b>`,  parse_mode: 'HTML' })
+        'https://asosturizm.com/pics/logocan.png',
+        { parse_mode: 'HTML' })
     return next();
 });
 
@@ -30,9 +30,7 @@ for(let i = 0; i <= 1; i++ ){
     ctx.deleteMessage(k)
 }
     return ctx.reply("Sohbet geçmişi temizlendi.")
-    
 })
-
 
 bot.command('destur', async (ctx, next) => {
     return ctx.reply("Barış, hoşgeldiniz hünkarım.")
@@ -40,7 +38,7 @@ bot.command('destur', async (ctx, next) => {
 
 
 
-            
+
             async function searchMessage(ctx){
     await ctx.reply('<b>Hangi web sitesine erişmek istiyorsun?</b>', {
         parse_mode: 'HTML',
