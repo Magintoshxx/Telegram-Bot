@@ -34,35 +34,13 @@ for(let i = 0; i <= 1; i++ ){
 })
 
 
-bot.command('destur', (ctx, temiz) =>{
-
-    return ctx.reply("Hoşgeldiniz, hünkarım.")
-    
-})
-
-
-
-    
-bot.command('botsohbet', async (ctx, next) => {
-    
-    await bot.telegram.sendDocument(ctx.chat.id, {
-        source: './dosyalar/botsohbet.mp4'
-    }, {
-        filename: 'botsohbet.mp4',
-        caption: 'https://t.me/botsohbet'
-    })
-    return next()
-    
-})
-
-
-bot.command('web', async (ctx, next) => {
-    await ctx.telegram.sendMessage(ctx.chat.id, `<b>${ctx.from.first_name}</b>`, { parse_mode: 'HTML' })
+bot.command('destur', async (ctx, next) => {
+    await ctx.telegram.sendMessage(ctx.chat.id, `<b>${ctx.from.first_name}, Hoşgeldiniz hünkarım. </b>`, { parse_mode: 'HTML' })
     return next();
 });
 
 
-async function searchMessage(ctx){
+bot.command('web', async (ctx, next) => {
     await ctx.reply('<b>Hangi web sitesine erişmek istiyorsunuz.?</b>', {
         parse_mode: 'HTML',
         ...Markup.inlineKeyboard([
