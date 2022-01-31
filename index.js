@@ -56,7 +56,7 @@ bot.command('botsohbet', async (ctx, next) => {
 })
 
 
-bot.command('komut', async (ctx, next) => {
+bot.command('web', async (ctx, next) => {
     await ctx.telegram.sendMessage(ctx.chat.id, `<b>${ctx.from.first_name}</b>`, { parse_mode: 'HTML' })
     return next();
 });
@@ -71,55 +71,10 @@ async function searchMessage(ctx){
             [Markup.button.url('TransferSepetim', 'www.transfersepetim.com')],
             [Markup.button.url('VipUpp', 'www.vipupp.com.tr')],
             [Markup.button.url('Staff', 'www.asosturizm.com/staff')]
-            [ Markup.button.callback('Yok ben almıyım.', 'kapat'), Markup.button.callback('Diğer', 'all')]
+            [ Markup.button.callback('Yok ben almıyım.', 'kapat')]
         ])
     })
 }
-
-
-bot.action('all', async (ctx) => {
-    await ctx.answerCbQuery()
-    await ctx.editMessageText('Yandex, DuckDuckGo, Yahoo ?', Markup.inlineKeyboard([
-        [Markup.button.url('Yandex', 'https://yandex.com.tr/'), Markup.button.url('DuckDuckGo', 'https://duckduckgo.com/')],
-        [Markup.button.url('Yahoo', 'https://www.yahoo.com/')],
-        [Markup.button.callback('Geri', 'geri')]
-    ]))
-})
-
-
-bot.action('geri', ctx => {
-    ctx.deleteMessage()
-    searchMessage(ctx)
-})
-
-
-bot.action('kapat', ctx => {
-    ctx.answerCbQuery()
-    ctx.deleteMessage()
-});
-
-
-bot.command("buton", ctx => {
-    ctx.deleteMessage()
-    searchMessage(ctx)
-})
-
-
-function getUserLink(user) {
-    const lastName = user.last_name ? ` ${user.last_name}` : '';
-    const username = user.username ? ` \nKullanıcı Adı: @${user.username}` : '';
-    const userBio = user.bio ? ` \nBio: ${user.bio}` : '';
-    return `<a href="tg://user?id=${user.id}">${user.first_name}${lastName}</a>${username}${userBio}\nID: <code>${user.id}</code>`;
-}
-
-
-bot.command("who", async (ctx) => {
-    const Id = ctx.message.reply_to_message ? ctx.message.reply_to_message.from.id : ctx.message.from.id;
-    const messageId = ctx.message.reply_to_message ? ctx.message.reply_to_message.message_id : null;
-    const getUserInfo = await ctx.telegram.getChat(Id);
-    const getUser = [getUserInfo].map(getUserLink).join(', ')
-    return ctx.replyWithHTML(getUser,  { reply_to_message_id: messageId })
-});
 
 
 bot.use(
