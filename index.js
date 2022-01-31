@@ -11,7 +11,7 @@ const config = require('./config');
 
 // Bota start verdiğinizde atılan ilk mesaj
 bot.start((ctx) => {
-    return ctx.reply("Merhaba, ben Asos. Yeni asistanım. Büşra'nın yerinde gözüm olduğu için buradayım. ");
+    return ctx.reply("Merhaba, ben Asos.  ");
 });
 
 
