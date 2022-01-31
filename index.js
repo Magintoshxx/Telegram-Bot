@@ -35,15 +35,14 @@ for(let i = 0; i <= 1; i++ ){
 
 
 bot.command('destur', async (ctx, next) => {
-    await ctx.telegram.sendMessage(ctx.chat.id, `<b>${ctx.from.first_name}, Hoşgeldiniz hünkarım. </b>`, { parse_mode: 'HTML' })
-    return next();
+    return ctx.reply("Barış, hoşgeldiniz hünkarım.")
 });
 
 
 
             
             async function searchMessage(ctx){
-    await ctx.reply('<b>Hangi arama motorunu kullanmak istiyorsunuz?</b>', {
+    await ctx.reply('<b>Hangi web sitesine erişmek istiyorsun?</b>', {
         parse_mode: 'HTML',
         ...Markup.inlineKeyboard([
          [Markup.button.url('Asos Turizm', 'www.asosturizm.com')],
@@ -51,24 +50,10 @@ bot.command('destur', async (ctx, next) => {
             [Markup.button.url('TransferSepetim', 'www.transfersepetim.com')],
             [Markup.button.url('VipUpp', 'www.vipupp.com.tr')],
             [Markup.button.url('Staff', 'www.asosturizm.com/staff')],
-            [ Markup.button.callback('Yok ben almıyım.', 'kapat'), Markup.button.callback('Diğer', 'all')]
+            [ Markup.button.callback('Yok ben almıyım.', 'kapat')]
         ])
     })
 }
-
-
-bot.action('all', async (ctx) => {
-    await ctx.answerCbQuery()
-    await ctx.editMessageText('Yandex, DuckDuckGo, Yahoo ?', Markup.inlineKeyboard([
-            [Markup.button.url('Asos Turizm', 'www.asosturizm.com')],
-            [Markup.button.url('Asos Transfer', 'www.asostransfer.com')],
-            [Markup.button.url('TransferSepetim', 'www.transfersepetim.com')],
-            [Markup.button.url('VipUpp', 'www.vipupp.com.tr')],
-            [Markup.button.url('Staff', 'www.asosturizm.com/staff')],
-        [Markup.button.callback('Geri', 'geri')]
-    ]))
-})
-
 
 bot.action('geri', ctx => {
     ctx.deleteMessage()
@@ -82,11 +67,10 @@ bot.action('kapat', ctx => {
 });
 
 
-bot.command("buton", ctx => {
+bot.command("web", ctx => {
     ctx.deleteMessage()
     searchMessage(ctx)
 })
-
 
 
 bot.use(
