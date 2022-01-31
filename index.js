@@ -63,10 +63,14 @@ bot.command('komut', async (ctx, next) => {
 
 
 async function searchMessage(ctx){
-    await ctx.reply('<b>Hangi arama motorunu kullanmak istiyorsunuz?</b>', {
+    await ctx.reply('<b>Hangi web sitesine erişmek istiyorsunuz.?</b>', {
         parse_mode: 'HTML',
         ...Markup.inlineKeyboard([
-            [Markup.button.url('Google', 'www.google.com')],
+            [Markup.button.url('Asos Turizm', 'www.asosturizm.com')],
+            [Markup.button.url('Asos Transfer', 'www.asostransfer.com')],
+            [Markup.button.url('TransferSepetim', 'www.transfersepetim.com')],
+            [Markup.button.url('VipUpp', 'www.vipupp.com.tr')],
+            [Markup.button.url('Staff', 'www.asosturizm.com/staff')]
             [ Markup.button.callback('Yok ben almıyım.', 'kapat'), Markup.button.callback('Diğer', 'all')]
         ])
     })
